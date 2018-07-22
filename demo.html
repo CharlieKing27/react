@@ -1,14 +1,15 @@
+<script src='https://unpkg.com/react@16/umd/react.development.js'></script>
+<script src='https://unpkg.com/react-dom@16/umd/react-dom.development.js'></script>
+
 <style>
 .board-row:after {
   clear: both;
   content: "";
   display: table;
 }
-
 .status {
   margin-bottom: 10px;
 }
-
 .square {
   background: #fff;
   border: 1px solid #999;
@@ -32,6 +33,7 @@ window.addEventListener('click', function(e) {
     e.preventDefault();
   }
 });
+
 class Square extends React.Component {
   render() {
     return (
@@ -41,6 +43,7 @@ class Square extends React.Component {
     );
   }
 }
+
 class Board extends React.Component {
   renderSquare(i) {
     return <Square />;
@@ -71,4 +74,28 @@ class Board extends React.Component {
     );
   }
 }
+
+class Game extends React.Component {
+  render() {
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+          <div>{/* status */}</div>
+          <ol>{/* TODO */}</ol>
+        </div>
+      </div>
+    );
+  }
+}
+
+// ========================================
+
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+);
+
 </script>
